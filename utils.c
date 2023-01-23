@@ -45,7 +45,7 @@ char *print_character(va_list list)
 		return (NULL);
 	c[0] = va_arg(list, int);
 	c[1] = '\0';
-	_putchar(c[0]);
+	write(1, c, 2);
 	return (c);
 }
 
@@ -81,6 +81,6 @@ char *print_percentage(va_list list)
 		return (NULL);
 	c[0] = '%';
 	c[1] = '\0';
-	_putchar(c[0]);
+	write(1, c, 2);
 	return (c);
 }
