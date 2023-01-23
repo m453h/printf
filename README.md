@@ -1,6 +1,6 @@
 # About
 
-This repository contains source code for the 0x11. C - printf project. The aim of the project is to create a printf function
+This repository contains source code for the 0x11. C - printf project. The aim of the project is to create a printf function7
 
 ## Authorized functions and macros
 * `write`
