@@ -8,12 +8,12 @@
 
 
 /**
- * struct type - Struct data type
+ * struct op - Struct op
  *
  * @op: data type argument
  * @f: The function associated
  */
-typedef struct type
+typedef struct op
 {
 	char *op;
 	int (*f)(char *format, va_list);
@@ -21,7 +21,6 @@ typedef struct type
 } type_t;
 
 /* utils.c */
-int _strlen(char *s);
 int _putchar(char c);
 int _putstr(char *str);
 int print_c(char *format, va_list pa);
