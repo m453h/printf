@@ -44,6 +44,7 @@ int _putchar(char c)
 	}
 	return (0);
 }
+
 /**
  * _putstr - writes a string to stdout
  * followed by a new line.
