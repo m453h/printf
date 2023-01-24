@@ -10,44 +10,45 @@
  **/
 int _printf(const char *format, ...)
 {
-	va_list list;
-	int i, j;
-	int char_counter = 0;
-	char *temp = NULL;
-	type_t ops[] = {
-		{"c", print_character},
-		{"s", print_string},
-		{"%", print_percentage},
-		{NULL, NULL}
-	};
+	int print_count = 0, (*structype)(char *, va_list);
+	char q[3];
+	va_list pa;
 
 	if (format == NULL)
 		return (-1);
+	q[2] = '\0';
+	va_start(pa, format);
 
-	va_start(list, format);
-	for (i = 0; format[i]; i++)
+	while (format[0])
 	{
-		if (format[i] == '%')
+		if (format[0] == '%')
 		{
-			i++;
-			temp = "";
-			j = 0;
-			while (ops[j].p)
+			structype = handler(format);
+			if (structype)
 			{
-				if (format[i] == *(ops[j]).p)
-					temp = ops[j].f(list);
-				j++;
+				q[0] = '%';
+				q[1] = format[1];
+				print_count += structype(q, pa);
 			}
-
-			char_counter = _strlen(temp);
+			else if (format[1] != '\0')
+			{
+				print_count += _putchar('%');
+				print_count += _putchar(format[1]);
+			}
+			else
+			{
+				print_count += _putchar('%');
+				break;
+			}
+			format += 2;
 		}
 		else
 		{
-			write(1, &(format[i]), 1);
-			char_counter++;
+			print_count += _putchar(format[0]);
+			format++;
 		}
 	}
-	va_end(list);
-	return (char_counter);
+
+	return (print_count);
 }
 

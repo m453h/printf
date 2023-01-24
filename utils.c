@@ -31,56 +31,51 @@ int _putchar(char c)
 }
 
 /**
- * print_character - prints char
- * @list: list of char(s) to print
- * Return: pointer to arg list of
- * character(s)
+ * _putstr - writes a string to stdout
+ * followed by a new line.
+ * @str: input string
+ * Return: character count of string.
  */
-char *print_character(va_list list)
+int _putstr(char *str)
 {
-	char *c;
+	int count = 0;
 
-	c = malloc(sizeof(char) * 2);
-	if (c == NULL)
-		return (NULL);
-	c[0] = va_arg(list, int);
-	c[1] = '\0';
-	write(1, c, 2);
-	return (c);
+	while (*str)
+	{
+		_putchar(*str);
+		str++;
+		count++;
+	}
+	return (count);
 }
 
 /**
- * print_string - prints string
- * @list: list of strings to print
- * Return: pointer to arg(s) list of string(s)
+ * print_c - prints a char.
+ * @format: format of char.
+ * @args: va_list with char.
+ * Return: number char for printf.
  */
-char *print_string(va_list list)
+int print_c(char *format, va_list args)
 {
-	char *s;
-	int size;
-
-	s = va_arg(list, char *);
-	for (size = 0; *(s + size); size++)
-		;
-	write(1, s, size);
-	return (s);
+	(void)format;
+	_putchar(va_arg(args, int));
+	return (1);
 }
 
 /**
- * print_percentage - prints char percentage
- * @list: arguement char
- * Return: pointer arg(s) list of format specifier
+ * print_str- print str.
+ * @format: format str.
+ * @args: va_list with str.
+ * Return: number str for print.
  */
-char *print_percentage(va_list list)
+int print_str(char *format, va_list args)
 {
-	char *c;
+	char *string = va_arg(args, char *);
+	int count;
+	(void)format;
 
-	(void)list;
-	c = malloc(sizeof(char) * 2);
-	if (c == NULL)
-		return (NULL);
-	c[0] = '%';
-	c[1] = '\0';
-	write(1, c, 2);
-	return (c);
+	if (string == NULL)
+		string = "(null)";
+	count = _putstr(string);
+	return (count);
 }

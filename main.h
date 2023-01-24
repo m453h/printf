@@ -13,16 +13,20 @@
  */
 typedef struct type
 {
-	char *p;
-	char *(*f)(va_list);
+	char *op;
+	int (*f)(char *format, va_list);
+
 } type_t;
 
-char *print_character(va_list list);
-char *print_string(va_list list);
-char *print_percentage(va_list list);
+/* utils.c */
 int _strlen(char *s);
 int _putchar(char c);
+int _putstr(char *str);
+int print_c(char *format, va_list pa);
+int print_str(char *format, va_list pa);
 
+/* handler.c */
+int (*handler(const char *format))(char *format, va_list);
 
 /* _printf.c */
 int _printf(const char *format, ...);
