@@ -27,9 +27,27 @@ int _strlen(char *s)
  */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
-}
+	static int buffer_count;
+	static char buffer[1024];
 
+	if (c == -1)
+	{
+		buffer_count = 0;
+		return (0);
+	}
+	if (c == -2 || buffer_count == 1024)
+	{
+		write(1, buffer, buffer_count);
+		buffer_count = 0;
+	}
+	if (c != -1 && c != -2)
+	{
+		buffer[buffer_count] = c;
+		buffer_count++;
+		return (1);
+	}
+	return (0);
+}
 /**
  * _putstr - writes a string to stdout
  * followed by a new line.

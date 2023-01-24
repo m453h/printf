@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	q[2] = '\0';
 	va_start(pa, format);
-
+	_putchar(-1);
 	while (format[0])
 	{
 		if (format[0] == '%')
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 			format++;
 		}
 	}
-
+	_putchar(-2);
 	return (print_count);
 }
 
