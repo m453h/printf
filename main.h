@@ -24,6 +24,7 @@ int _putchar(char c);
 int _putstr(char *str);
 int print_c(char *format, va_list pa);
 int print_str(char *format, va_list pa);
+int print_prct(char *format, va_list pa);
 
 /* handler.c */
 int (*handler(const char *format))(char *format, va_list);

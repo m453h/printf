@@ -15,6 +15,7 @@ int (*handler(const char *format))(char *format, va_list)
 	type_t fn[] = {
 		{"%c", print_c},
 		{"%s", print_str},
+		{"%%", print_prct},
 		{NULL, NULL}
 	};
 

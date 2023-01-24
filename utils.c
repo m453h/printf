@@ -1,21 +1,17 @@
 #include "main.h"
 
 /**
- * _strlen - calculates the length of a string
- *@s: The input string used to determine length
- *
- *  Return: (int) length of string
+ * print_prct - prints %
+ * @format: format
+ * @pa: va_list
+ * Return: number of characters printed
  */
-int _strlen(char *s)
+int print_prct(char *format, va_list pa)
 {
-	int length = 0;
-
-	while (s[length] != '\0')
-	{
-		length++;
-	}
-
-	return (length);
+	(void)format;
+	(void)pa;
+	_putchar('%');
+	return (1);
 }
 
 /**

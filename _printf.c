@@ -11,12 +11,12 @@
 int _printf(const char *format, ...)
 {
 	int print_count = 0, (*structype)(char *, va_list);
-	char q[3];
+	char c[3];
 	va_list pa;
 
 	if (format == NULL)
 		return (-1);
-	q[2] = '\0';
+	c[2] = '\0';
 	va_start(pa, format);
 	_putchar(-1);
 	while (format[0])
@@ -26,9 +26,9 @@ int _printf(const char *format, ...)
 			structype = handler(format);
 			if (structype)
 			{
-				q[0] = '%';
-				q[1] = format[1];
-				print_count += structype(q, pa);
+				c[0] = '%';
+				c[1] = format[1];
+				print_count += structype(c, pa);
 			}
 			else if (format[1] != '\0')
 			{
