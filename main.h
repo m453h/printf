@@ -1,36 +1,36 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
-
+#include <stdlib.h>
 
 /**
- * struct op - Struct op
+ * struct print_struct - structure containing
+ * @q: the location and method to translate data to characters.
+ * @u: print function for specific type.
  *
- * @op: data type argument
- * @f: The function associated
+ * Return: int
  */
-typedef struct op
+typedef struct print_struct
 {
-	char *op;
-	int (*f)(char *format, va_list);
+	char *q;
+	int (*u)(char *format, va_list);
+} print_struct_t;
 
-} type_t;
-
-/* utils.c */
-int _putchar(char c);
-int _putstr(char *str);
-int print_c(char *format, va_list pa);
-int print_str(char *format, va_list pa);
-int print_prct(char *format, va_list pa);
-
-/* handler.c */
-int (*handler(const char *format))(char *format, va_list);
-
-/* _printf.c */
-int _printf(const char *format, ...);
-
+int _putchar(char ch);
+int _puts(char *string);
+int printc(char *format, va_list);
+int printstr(char *format, va_list);
+int (*driver(char *format))(char *format, va_list);
+int _printf(char *format, ...);
+int printint(char *format, va_list pa);
+int integer(int number);
+int contadordigit(int number);
+int _abs(int number);
+int printpercent(char *format, va_list pa);
+int printhex(char *format, va_list);
+int printHEX(char *format, va_list);
+int printocta(char *format, va_list);
+int print_unsign(char *format, va_list);
 #endif
