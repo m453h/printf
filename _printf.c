@@ -51,4 +51,3 @@ int _printf(const char *format, ...)
 	_putchar(-2);
 	return (print_count);
 }
-
