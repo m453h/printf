@@ -1,22 +1,22 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
 
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdlib.h>
 
 /**
- * struct print_struct - structure containing
+ * struct structprint - structure containing
  * @q: the location and method to translate data to characters.
  * @u: print function for specific type.
  *
  * Return: int
  */
-typedef struct print_struct
+typedef struct structprint
 {
 	char *q;
 	int (*u)(char *format, va_list);
-} print_struct_t;
+} structype;
 
 int _putchar(char ch);
 int _puts(char *string);
